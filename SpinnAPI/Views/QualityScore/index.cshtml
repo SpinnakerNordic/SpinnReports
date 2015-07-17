@@ -1,0 +1,58 @@
+﻿@using System.Web
+<div style="width: 100%;">
+    <h2 id="title" style="margin: 0 auto;">@ViewBag.PageTitle</h2> <br> <br>
+    <div style="width: 600px; margin: 0 auto;">
+        <div style="float: left; clear: none; width: 50%;">
+            <span>EMAILS</span> <br>
+            <select id="emails" size="10" style="width: 100%;">
+                @foreach (string email in ViewBag.EmailList)
+                {
+                    <option value="@email">@email</option>
+                }
+            </select>
+            <div style="width: 100%;">
+                <input type="button" style="float: left;" id="email_create" value="Create" />
+                <input type="button" style="float: left;" id="email_delete" value="Delete" />
+            </div>
+            <input id="newEmail" />
+            <input type="button" style="float: right;" id="email_confirm" value="Confirm" />
+
+        </div>
+        <div style="float: left; clear: none; width: 50%;">
+            <span>KEYWORDS</span><br>
+            <select id="keywords" size="10" style="width: 100%;">
+                @foreach (string keyword in ViewBag.KeywordList)
+                {
+                    <option value="@keyword">@keyword</option>
+                }
+            </select>
+            <div style="width: 100%;">
+                <input type="button" style="float: right;" id="keyword_delete" value="Delete" />
+                <input type="button" style="float: right;" id="keyword_create" value="Create" />
+            </div>
+            <input id="newKeyword" />
+            <input type="button" style="float: left;" id="keyword_confirm" value="Confirm" />
+        </div>
+    </div>
+</div>
+
+<script type="text\javascript">
+    $(function(){
+        $("input#email_create").on('click', function(){
+            $("input#email_confirm").style.visibility = "hidden";
+            $("input#newEmail").style.visibility = "hidden";
+        });
+
+        $("input#email_delete").on('click', function(){
+        echo 'lol';
+        });
+
+        $("input#keyword_create").on('click', function(){
+        echo 'lol';
+        });
+
+        $("input#keyword_delete").on('click', function(){
+        echo 'lol';
+        });
+    });
+</script>
