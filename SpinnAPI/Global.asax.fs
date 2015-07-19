@@ -7,6 +7,8 @@ open System.Web.Http
 open System.Web.Mvc
 open System.Web.Routing
 open System.Web.Optimization
+open System.Threading
+open System.Threading.Tasks
 
 type BundleConfig() =
     static member RegisterBundles (bundles:BundleCollection) =
@@ -64,6 +66,11 @@ type Global() =
         ) |> ignore
 
     member x.Application_Start() =
+//        Task.Factory.StartNew<unit>((fun () ->
+//            while true do
+//                Thread.Sleep(3600000)//10 minutes
+//            ), TaskCreationOptions.LongRunning) |> ignore
+
         AreaRegistration.RegisterAllAreas()
         GlobalConfiguration.Configure(Action<_> Global.RegisterWebApi)
         Global.RegisterFilters(GlobalFilters.Filters)

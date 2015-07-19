@@ -1,9 +1,14 @@
 ﻿namespace SpinnAPI.Controllers
+
 open System
 open System.Collections.Generic
 open System.Linq
 open System.Net.Http
 open System.Web.Http
+open System.IO
+open System.Net
+open System.Security.Cryptography
+open System.Text
 
 open SpinnAPI.Models
 open SpinnAPI.DataRepository
@@ -25,24 +30,26 @@ type UsersController(queries : DataQueries) =
             let randomChars = [|for i in 0..24 -> chars.[random.Next(charsLen)]|]
             new String(randomChars)
 
-        let newUser = new DataConnection.ServiceTypes.User(Name = value.Name, Identifier = newtoken, Email = value.Email)
+        let newUser = new DataConnection.ServiceTypes.Users(Name = value.Name, Identifier = newtoken, Email = value.Email)
         
-        db.User.InsertOnSubmit(newUser)
+        db.Users.InsertOnSubmit(newUser)
         db.DataContext.SubmitChanges() |> ignore
         
         newtoken
 
-    member x.Delete(id:int) =
-        let db = DataConnection.GetDataContext()
+    /// DELETE /api/users/{token}
+    member x.Delete(id:string) =
+        use db = DataConnection.GetDataContext()
 
-        let user = queries.FindUser(id, db)
+        let user = queries.FindUserByToken(id, db)
 
-        db.User.DeleteOnSubmit(user)
+        db.Users.DeleteOnSubmit(user)
         db.DataContext.SubmitChanges() |> ignore
 
-    member x.Get() =
-        let db = DataConnection.GetDataContext()
+    /// GET /api/users
+    member x.GetAll() =
+        use db = DataConnection.GetDataContext()
         
-        queries.FindAllUsers(db)
-
-
+        let users = queries.FindAllUsers(db)
+        db.Connection.Close()
+        users
