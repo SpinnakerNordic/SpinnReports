@@ -111,7 +111,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Tokens.cshtml" />
     <Content Include="Views\QualityScore\Settings.cshtml" />
+    <!--Divider-->
     <Content Include="Content\Site.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap-theme.css.map" />
@@ -119,6 +121,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.css" />
+    <!--Divider-->
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -126,20 +129,24 @@
     <Content Include="Scripts\jquery-2.0.3.min.map" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
-    <None Include="Scripts\jquery-2.0.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\respond.js" />
+    <!--Divider-->
     <None Include="fonts\glyphicons-halflings-regular.woff" />
     <None Include="fonts\glyphicons-halflings-regular.ttf" />
     <None Include="fonts\glyphicons-halflings-regular.svg" />
     <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <!--Divider-->
     <Compile Include="MailApp.fs" />
-    <Compile Include="DataConnection.fs" />
     <Compile Include="Models.fs" />
+    <Compile Include="DataConnection.fs" />
+    <!--Divider-->
     <Compile Include="Controllers\HomeController.fs" />
-    <Compile Include="Controllers\ValuesController.fs" />
     <Compile Include="Controllers\QualityScoreController.fs" />
-    <Compile Include="Controllers\UsersController.fs" />
+    <Compile Include="Controllers\HealthController.fs" />
+    <Compile Include="Controllers\ValuesController.fs" />
+    <!--Divider-->
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
     <Compile Include="Global.asax.fs">
@@ -168,6 +175,9 @@
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="SpinnAPI">
+      <HintPath>Bin\SpinnAPI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

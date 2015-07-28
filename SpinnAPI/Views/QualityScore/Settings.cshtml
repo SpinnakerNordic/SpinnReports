@@ -1,8 +1,10 @@
 ﻿<div style="width: 100%;">
     <h2 id="title">@ViewBag.Title</h2> <br> <br>
     <div style="min-width: 500px; max-width:600px">
+        
         <div style="float: left; clear: none; width: 47%;">
-            <span>EMAILS</span> <br>
+            <label>Emails:</label><br>
+            <span>Emails to recieve your report.</span> <br>
 
             @using (Html.BeginForm("DeleteEmail", "QualityScore", FormMethod.Post))
             {
@@ -12,23 +14,27 @@
                         <option value="@email">@email</option>
                     }
                 </select>
-                <input type="submit" id="email_delete" value="Delete" />
+                <input class="greenbutt" type="submit" id="email_delete" value="Delete Selected Email" />
                 <input name="qsid" style="display: none" value="@ViewBag.QSID" />
                 <input name="token" style="display: none" value="@ViewBag.Token" />
             }
+            
+            <br/>
 
             @using (Html.BeginForm("PostEmail", "QualityScore", FormMethod.Post))
             {
-                <input type="submit" id="email_create" value="Create" />
-                <input name="email" />
-                <input name="qsid" style="display: none" value="@ViewBag.QSID"/>
+                <label>Add new email to the list.</label>
+                <input name="email" style="margin-right: 50%" />
+                <input class="greenbutt" type="submit" id="email_create" value="Create" />
+                <input name="qsid" style="display: none" value="@ViewBag.QSID" />
                 <input name="token" style="display: none" value="@ViewBag.Token" />
             }
 
         </div>
 
         <div style="float: right; clear: none; width: 47%;">
-            <span>KEYWORDS</span><br>
+            <label>Keywords:</label><br>
+            <span>Brand Keywords to ignore from the report.</span><br>
             @using (Html.BeginForm("DeleteBrand", "QualityScore", FormMethod.Post))
             {
                 <select name="keyword" size="10" style="width: 100%; max-width: 100%">
@@ -37,19 +43,33 @@
                         <option value="@keyword">@keyword</option>
                     }
                 </select>
-                <input type="submit" id="keyword_delete" value="Delete" />
-                <input name="qsid" style="display: none" value="@ViewBag.QSID"/>
+                <input class="greenbutt" type="submit" id="keyword_delete" value="Delete Selected Brand Keyword" />
+                <input name="qsid" style="display: none" value="@ViewBag.QSID" />
                 <input name="token" style="display: none" value="@ViewBag.Token" />
             }
+            
+            <br/>
 
             @using (Html.BeginForm("PostBrand", "QualityScore", FormMethod.Post))
             {
-                <input type="submit" id="keyword_create" value="Create" />
-                <input name="keyword" />
-                <input name="qsid" style="display: none" value="@ViewBag.QSID"/>
+                <label>Add new keyword to the list.</label>
+                <input name="keyword" style="margin-right: 50%" />
+                <input class="greenbutt" type="submit" id="keyword_create" value="Create" />
+                
+                <input name="qsid" style="display: none" value="@ViewBag.QSID" />
                 <input name="token" style="display: none" value="@ViewBag.Token" />
             }
         </div>
-    </div>
+        
+        <div style="clear:both">
+            <br />
+            <hr>
+            @using (Html.BeginForm("WordpressDashboard", "QualityScore", FormMethod.Post))
+            {
+                <input class="greenbutt" type="submit" value="Close and return to Spinntools!" />
+            }
+            
+        </div>
+    </div>                 
 </div>
 

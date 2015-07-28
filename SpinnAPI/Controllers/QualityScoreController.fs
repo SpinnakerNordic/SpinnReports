@@ -11,27 +11,6 @@ open System.Web.Mvc.Ajax
 open SpinnAPI.Models
 open SpinnAPI.DataRepository
 
-type QualityScoreModel = {
-    SUMARIZE : string
-    TITLE : string
-    NAMESTRING : string
-    INFORMATIONLINE : string
-    LOGOSOURCE : string
-    SCORE1 : double
-    SCORE2 : double
-    SCORE3 : double
-    CALLTOACTION : string
-    BUTTONLINK : string
-    BUTTONTEXT : string
-    TOP5 : string
-    BOTTOM5 : string
-    TABLETOP5 : (string[] * string[])
-    TABLEBOTTOM5 : (string[] * string[])
-    IMAGETEXT : string
-    IMAGELINK : string
-    IMAGESOURCE : string
-}
-
 type QualityScoreReport() =
 
     member this.Contruct(model : QualityScoreModel) =
@@ -1364,8 +1343,6 @@ type QualityScoreReport() =
         head + body
 
 
-type TokenRouter = { token:string}
-
 /// Retrieves values.
 type QualityScoreController(queries : DataQueries) =
     inherit Controller()
@@ -1454,3 +1431,7 @@ type QualityScoreController(queries : DataQueries) =
 
         let tokenRouter = { token = token }
         this.RedirectToAction("Settings", tokenRouter);
+
+
+    member this.WordpressDashboard() =
+        this.Redirect("http://app.spinntools.com/qsr-dashboard/")

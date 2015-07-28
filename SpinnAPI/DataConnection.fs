@@ -12,6 +12,7 @@ type DataConnection = SqlDataConnection<"Data Source=spinnreporting.cixmb8ypy409
 
 type DataQueries() =
     
+    ///find the database user from a given id
     member x.FindUser(id, (db : DataConnection.ServiceTypes.SimpleDataContextTypes.Reporting)) = 
         query {
             for row in db.Users do

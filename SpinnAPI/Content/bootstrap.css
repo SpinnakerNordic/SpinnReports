@@ -6366,3 +6366,17 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+.greenbutt
+{
+   background-color:#24890d;
+   display:inline-block;
+   cursor:pointer;
+   color:white;
+   height:30px;
+   padding: 5px; 
+}
+.greenbutt:hover {
+   background-color: darkgreen;
+   color:white;
+}

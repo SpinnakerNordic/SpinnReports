@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{03DB8BE6-3C8F-4996-8A92-8A29B256DE43}"
 	ProjectSection(SolutionItems) = preProject
@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{03DB8B
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SpinnAPI", "SpinnAPI\SpinnAPI.fsproj", "{60330D06-CD09-47D9-8493-DCC71A4AB895}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpinnReporting", "SpinnReporting\SpinnReporting.csproj", "{49CD36BD-5777-4CE6-9E84-53AACA5E6998}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,10 +23,6 @@ Global
 		{60330D06-CD09-47D9-8493-DCC71A4AB895}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60330D06-CD09-47D9-8493-DCC71A4AB895}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60330D06-CD09-47D9-8493-DCC71A4AB895}.Release|Any CPU.Build.0 = Release|Any CPU
-		{49CD36BD-5777-4CE6-9E84-53AACA5E6998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{49CD36BD-5777-4CE6-9E84-53AACA5E6998}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{49CD36BD-5777-4CE6-9E84-53AACA5E6998}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{49CD36BD-5777-4CE6-9E84-53AACA5E6998}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

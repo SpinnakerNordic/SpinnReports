@@ -1,0 +1,16 @@
+@using SpinnAPI.DataRepository
+
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Token</th>
+    </tr>
+    @foreach (DataConnection.ServiceTypes.Users user in ViewBag.Users)
+    {
+        <tr>
+            <td>@user.Name</td>
+            <td>@user.Identifier</td>
+        </tr>
+    }
+</table>
