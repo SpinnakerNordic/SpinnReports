@@ -7,19 +7,23 @@ open System.Web
 open System.Web.Mvc
 open System.Web.Mvc.Ajax
 
-type HomeController() =
+open SpinnAPI.Models
+open SpinnAPI.DataRepository
+
+type HomeController(queries : DataQueries) =
     inherit Controller()
+    new () = new HomeController(DataQueries())
     
-    member this.Index () = 
+    member this.Index() = 
         this.View()
 
     member this.Spinntools() =
         this.Redirect("http://app.spinntools.com/")
 
     member this.Tokens() =
-        use db = SpinnAPI.DataRepository.DataConnection.GetDataContext()
+        use db = DataConnection.GetDataContext()
         
-        let users = SpinnAPI.DataRepository.DataQueries().FindAllUsers(db)
+        let users = queries.FindAllUsers(db)
         db.Connection.Close()
 
         this.ViewData.Add("Users", users)

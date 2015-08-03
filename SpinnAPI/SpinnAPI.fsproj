@@ -113,6 +113,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Tokens.cshtml" />
     <Content Include="Views\QualityScore\Settings.cshtml" />
+	<Content Include="Views\QualityScore\Report.cshtml" />
     <!--Divider-->
     <Content Include="Content\Site.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -144,7 +145,6 @@
     <!--Divider-->
     <Compile Include="Controllers\HomeController.fs" />
     <Compile Include="Controllers\QualityScoreController.fs" />
-    <Compile Include="Controllers\HealthController.fs" />
     <Compile Include="Controllers\ValuesController.fs" />
     <!--Divider-->
     <Content Include="Web.config" />

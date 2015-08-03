@@ -33,8 +33,8 @@ type Route = {
     id : UrlParameter }
 
 type HttpRoute = {
-    controller : string
-    id : RouteParameter }
+    apicontroller : string
+    apiid : RouteParameter }
 
 type Global() =
     inherit System.Web.HttpApplication() 
@@ -45,14 +45,12 @@ type Global() =
         config.Routes.MapHttpRoute(
             "DefaultApi", // Route name
             "api/{controller}/{id}", // URL with parameters
-            { controller = "{controller}"; id = RouteParameter.Optional } // Parameter defaults
+            { apicontroller = "{controller}"; apiid = RouteParameter.Optional } // Parameter defaults
         ) |> ignore
 
         // Configure serialization
         config.Formatters.XmlFormatter.UseXmlSerializer <- true
         config.Formatters.JsonFormatter.SerializerSettings.ContractResolver <- Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver()
-
-        // Additional Web API settings
 
     static member RegisterFilters(filters: GlobalFilterCollection) =
         filters.Add(new HandleErrorAttribute())

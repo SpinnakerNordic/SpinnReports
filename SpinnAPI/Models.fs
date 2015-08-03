@@ -8,13 +8,20 @@ type User = {
     Email : string
 }
 
+type QSR = {
+    Score : decimal
+    Top5Keys : string[]
+    Top5Scores : decimal[]
+    Bottom5Keys : string[]
+    Bottom5Scores : decimal[]
+}
+
 type QualityScoreModel = {
     SUMARIZE : string
     TITLE : string
     NAMESTRING : string
     INFORMATIONLINE : string
     LOGOSOURCE : string
-    SCORE1 : double
     SCORE2 : double
     SCORE3 : double
     CALLTOACTION : string
@@ -22,9 +29,9 @@ type QualityScoreModel = {
     BUTTONTEXT : string
     TOP5 : string
     BOTTOM5 : string
-    TABLETOP5 : (string[] * string[])
-    TABLEBOTTOM5 : (string[] * string[])
     IMAGETEXT : string
     IMAGELINK : string
     IMAGESOURCE : string
 }
+
+type TokenRouter = { Token:string}

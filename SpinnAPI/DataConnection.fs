@@ -8,6 +8,8 @@ open System.Data.Linq.SqlClient
 open Microsoft.FSharp.Data.TypeProviders
 open Microsoft.FSharp.Linq
 
+open SpinnAPI.Models
+
 type DataConnection = SqlDataConnection<"Data Source=spinnreporting.cixmb8ypy409.eu-west-1.rds.amazonaws.com;Initial Catalog=Reporting;User ID=Spinnaker;Password=Copenhagen2014">
 
 type DataQueries() =
@@ -68,5 +70,21 @@ type DataQueries() =
             for row in db.QS_Brands do
             where (row.QS_Id = id && row.Keyword = keyword)
             select row
+        } |> Seq.exactlyOne
+
+    member x.MakeModel(id, date, db : DataConnection.ServiceTypes.SimpleDataContextTypes.Reporting) : QSR = 
+        query {
+            for row in db.QS_Scores do
+            where (row.QS_Id = id && row.Date = date)
+            select (if (row.HasKeysScores) then {Score = row.Score; 
+                    Top5Keys = [|row.Top1_key; row.Top2_key; row.Top3_key; row.Top4_key; row.Top5_key;|]; 
+                    Top5Scores = [|row.Top1_score; row.Top2_score; row.Top3_score; row.Top4_score; row.Top5_score;|] |> Seq.cast<decimal> |> Seq.toArray; 
+                    Bottom5Keys = [|row.Bottom1_key; row.Bottom2_key; row.Bottom3_key; row.Bottom4_key; row.Bottom5_key;|]; 
+                    Bottom5Scores = [|row.Bottom1_score; row.Bottom2_score; row.Bottom3_score; row.Bottom4_score; row.Bottom5_score;|] |> Seq.cast<decimal> |> Seq.toArray}
+                else {Score = row.Score; 
+                    Top5Keys = Array.empty ; 
+                    Top5Scores = Array.empty; 
+                    Bottom5Keys = Array.empty; 
+                    Bottom5Scores = Array.empty})
         } |> Seq.exactlyOne
 
